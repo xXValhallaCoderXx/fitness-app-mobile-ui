@@ -8,8 +8,7 @@ import theme from "./src/shared/styles/theme";
 
 import LoginScreen from "./src/screens/login";
 import RegisterScreen from "./src/screens/register";
-import HomeScreen from "./src/screens/home";
-import ProfileScreen from "./src/screens/profile";
+import ProtectedScreen from "./src/screens/protected-screens";
 
 const Stack = createStackNavigator();
 
@@ -20,12 +19,7 @@ const App = () => {
         <Stack.Navigator>
           <Stack.Screen name="Login" component={LoginScreen} />
           <Stack.Screen name="Register" component={RegisterScreen} />
-          <Stack.Screen
-            name="Home"
-            component={HomeScreen}
-            options={{ title: "Welcome" }}
-          />
-          <Stack.Screen name="Profile" component={ProfileScreen} />
+          <Stack.Screen name="MainAppHome" component={ProtectedScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </ThemeProvider>

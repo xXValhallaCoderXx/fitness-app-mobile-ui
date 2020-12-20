@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { CommonActions } from "@react-navigation/native";
 import { ThemeContext } from "react-native-elements";
 import { Button, Card, Input, Text } from "react-native-elements";
 import { StyleSheet, View } from "react-native";
@@ -16,12 +17,21 @@ const HomeScreen = ({ navigation, route }: IProps) => {
   const { error, data, loading, callApi } = useFetch();
   const { theme } = useContext(ThemeContext);
 
-  const handleLogin = () => {
-    callApi({
-      url: "http://localhost:8000/api/users/",
-      method: "POST",
-      body: { username, password },
-    });
+  // const handleLogin = () => {
+  //   callApi({
+  //     url: "http://localhost:8000/api/users/",
+  //     method: "POST",
+  //     body: { username, password },
+  //   });
+  // };
+
+  const handleRoute = () => {
+    navigation.dispatch(
+      CommonActions.reset({
+        index: 1,
+        routes: [{ name: "MainAppHome" }],
+      })
+    );
   };
 
   const onChangeUsername = (e: any) => {
@@ -38,7 +48,7 @@ const HomeScreen = ({ navigation, route }: IProps) => {
 
         <Input placeholder="Username" onChange={onChangeUsername} />
         <Input placeholder="Password" onChange={onChangePassword} />
-        <Button title="Login" onPress={handleLogin} />
+        <Button title="Login" onPress={handleRoute} />
         <Text style={styles.registerText}>
           Don't have an account? Click{" "}
           <Text
