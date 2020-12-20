@@ -1,0 +1,12 @@
+{
+  "name": "fitness-app-mobile",
+  "displayName": "fitness-app-mobile",
+  "expo": {
+    "name": "fitness-app-mobile",
+    "slug": "fitness-app-mobile",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
