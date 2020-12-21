@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   registerBtn: {
-    marginTop: "1rem",
+    marginTop: 16,
   },
 });
 

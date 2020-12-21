@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   registerText: {
-    marginTop: "1rem",
+    marginTop: 16,
     textAlign: "center",
   },
   registerTextLink: {},
