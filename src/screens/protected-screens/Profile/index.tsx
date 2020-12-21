@@ -1,14 +1,18 @@
 import React from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
+import { Card } from "react-native-elements";
+import { StyleSheet, View } from "react-native";
 
-const ProfileScreen = ({ navigation, route }) => {
+interface IProps {
+  navigation: any;
+  route: any;
+}
+
+const ProfileScreen = ({ navigation, route }: IProps) => {
   return (
     <View style={styles.container}>
-      <Text>PROFILE SCREEN</Text>
-      <Button
-        title="Go to Home"
-        onPress={() => navigation.navigate("Home", { data: "Jane" })}
-      />
+      <Card>
+        <Card.Title>PROFILE</Card.Title>
+      </Card>
     </View>
   );
 };
