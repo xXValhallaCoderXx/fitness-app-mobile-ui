@@ -1,7 +1,7 @@
 import "react-native-gesture-handler";
 import React from "react";
 import { Provider } from "react-redux";
-import { ThemeProvider } from "react-native-elements";
+import { ThemeProvider, Text } from "react-native-elements";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
@@ -20,8 +20,8 @@ const App = () => {
       <ThemeProvider theme={theme}>
         <NavigationContainer>
           <Stack.Navigator>
-            <Stack.Screen name="Login" component={LoginScreen} />
-            <Stack.Screen name="Register" component={RegisterScreen} />
+            {/* <Stack.Screen name="Login" component={LoginScreen} />
+            <Stack.Screen name="Register" component={RegisterScreen} /> */}
             <Stack.Screen name="MainAppHome" component={ProtectedScreen} />
           </Stack.Navigator>
         </NavigationContainer>

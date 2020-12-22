@@ -11,7 +11,7 @@ export const api = ({ url, method = "GET", body, headers }: IArgs) => {
       method,
       body: JSON.stringify(body),
       headers: {
-        "content-type": "application/json",
+        "Content-Type": "application/json",
         ...headers,
       },
     })

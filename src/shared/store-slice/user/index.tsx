@@ -31,6 +31,7 @@ const userSlice = createSlice({
     },
     fetchUserSuccess(state, action: PayloadAction<IUser>) {
       state.loading = false;
+      state.user = action.payload;
     },
     fetchUserFailure(state, action: PayloadAction<null>) {
       state.loading = false;
@@ -54,13 +55,12 @@ export const fetchUser = (id: string): AppThunk => async (
   dispatch: AppDispatch
 ) => {
   try {
+    console.log("LETS TRY");
     dispatch(userSlice.actions.fetchUserRequest(null));
-    console.log("FETCHING");
-    const response = await api({ url: `${ROUTES.FETCH_USER}${id}` });
+    const response: any = await api({ url: `${ROUTES.FETCH_USER}${id}` });
+    const { email, username } = response;
     console.log("RESPONSE: ", response);
-    dispatch(
-      userSlice.actions.fetchUserSuccess({ email: "cheese", username: "sdsd" })
-    );
+    dispatch(userSlice.actions.fetchUserSuccess({ email, username }));
   } catch (err) {
     console.log("ERROR: ", err);
     dispatch(userSlice.actions.fetchUserFailure(null));

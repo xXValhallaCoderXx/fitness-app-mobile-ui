@@ -1,8 +1,8 @@
 import React from "react";
 import { Card } from "react-native-elements";
 import { StyleSheet, View } from "react-native";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchUser, selectUser } from "shared/store-slice/user";
+import { useDispatch } from "react-redux";
+import { fetchUser } from "shared/store-slice/user";
 
 interface IProps {
   navigation: any;
@@ -10,9 +10,9 @@ interface IProps {
 }
 
 const HomeScreen = ({ navigation, route }: IProps) => {
-  const user = useSelector(selectUser);
   const dispatch = useDispatch();
   React.useEffect(() => {
+    console.log("FETCH");
     dispatch(fetchUser("1"));
   }, []);
 

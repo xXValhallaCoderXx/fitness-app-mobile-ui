@@ -1,5 +1,7 @@
 import React from "react";
-import { Card } from "react-native-elements";
+import { useSelector } from "react-redux";
+import { selectUser } from "shared/store-slice/user";
+import { Card, Avatar, Text } from "react-native-elements";
 import { StyleSheet, View } from "react-native";
 
 interface IProps {
@@ -8,11 +10,18 @@ interface IProps {
 }
 
 const ProfileScreen = ({ navigation, route }: IProps) => {
+  const user = useSelector(selectUser);
+  console.log("USER: ", user);
   return (
     <View style={styles.container}>
-      <Card>
-        <Card.Title>PROFILE</Card.Title>
-      </Card>
+      <Avatar
+        size="xlarge"
+        rounded
+        containerStyle={{ backgroundColor: "gray", marginTop: 50 }}
+        title="CR"
+        onPress={() => console.log("Works!")}
+      />
+      <Text>{user.email}</Text>
     </View>
   );
 };
@@ -20,9 +29,8 @@ const ProfileScreen = ({ navigation, route }: IProps) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "white",
     alignItems: "center",
-    justifyContent: "center",
   },
 });
 
