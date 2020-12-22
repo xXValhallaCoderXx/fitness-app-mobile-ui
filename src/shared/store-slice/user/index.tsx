@@ -55,11 +55,11 @@ export const fetchUser = (id: string): AppThunk => async (
   dispatch: AppDispatch
 ) => {
   try {
-    console.log("LETS TRY");
     dispatch(userSlice.actions.fetchUserRequest(null));
-    const response: any = await api({ url: `${ROUTES.FETCH_USER}${id}` });
+    const response: any = await api({
+      url: `${ROUTES.FETCH_USER}/${id}`,
+    });
     const { email, username } = response;
-    console.log("RESPONSE: ", response);
     dispatch(userSlice.actions.fetchUserSuccess({ email, username }));
   } catch (err) {
     console.log("ERROR: ", err);
