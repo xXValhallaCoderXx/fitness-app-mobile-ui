@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { api } from "shared/utils/api";
 
 interface IProps {
   url: string;
@@ -25,26 +26,19 @@ const useFetch = (): IReturn => {
     headers = {},
     body = {},
   }: IProps) => {
-    setLoading(true);
-    fetch(url, {
-      method,
-      body: JSON.stringify(body),
-      headers: {
-        "content-type": "application/json",
-        ...headers,
-      },
-    })
-      .then((response) => response.json())
-      .then((response) => {
-        console.log("RESPONSE: ", response);
-        setData(response);
+    api({ url, method, headers, body })
+      .then((res) => {
+        console.log("RESPONSE: ", res);
+        setData(null);
         setLoading(false);
       })
       .catch((err) => {
+        console.log("ERROR", err);
+
         setError(true);
         setLoading(false);
-        console.log("ERROR", err);
       });
+    setLoading(true);
   };
 
   return { loading, error, data, callApi };
