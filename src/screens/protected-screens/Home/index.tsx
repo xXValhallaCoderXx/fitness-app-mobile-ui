@@ -19,7 +19,7 @@ const HomeScreen = ({ navigation, route }: IProps) => {
   return (
     <View style={styles.container}>
       <Card>
-        <Card.Title>HOME</Card.Title>
+        <Card.Title>Homessss</Card.Title>
       </Card>
     </View>
   );

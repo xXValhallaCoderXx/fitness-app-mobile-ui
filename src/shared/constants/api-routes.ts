@@ -1,3 +1,3 @@
 export const ROUTES = {
-  FETCH_USER: "http://localhost:8000/api/users/",
+  FETCH_USER: "http://0.0.0.0:8000/api/users/",
 };
