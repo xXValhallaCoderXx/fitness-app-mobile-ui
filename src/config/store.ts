@@ -1,10 +1,12 @@
-import { configureStore, Action } from "@reduxjs/toolkit";
+import { configureStore, Action, getDefaultMiddleware } from "@reduxjs/toolkit";
 import { ThunkAction } from "redux-thunk";
+import logger from "redux-logger";
 
 import rootReducer, { RootState } from "./root-reducer";
 
 const store = configureStore({
   reducer: rootReducer,
+  middleware: [logger, ...getDefaultMiddleware()],
 });
 
 if (module.hot) {

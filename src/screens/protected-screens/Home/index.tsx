@@ -12,7 +12,6 @@ interface IProps {
 const HomeScreen = ({ navigation, route }: IProps) => {
   const dispatch = useDispatch();
   React.useEffect(() => {
-    console.log("FETCH");
     dispatch(fetchUser("1"));
   }, []);
 
