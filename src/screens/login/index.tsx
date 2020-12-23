@@ -4,7 +4,7 @@ import { ThemeContext } from "react-native-elements";
 import { Button, Card, Input, Text } from "react-native-elements";
 import { StyleSheet, View } from "react-native";
 
-import useFetch from "../../shared/hooks/use-fetch";
+import useFetch from "shared/hooks/use-fetch";
 
 interface IProps {
   navigation: any;

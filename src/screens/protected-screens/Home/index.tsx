@@ -1,6 +1,8 @@
 import React from "react";
 import { Card } from "react-native-elements";
 import { StyleSheet, View } from "react-native";
+import { useDispatch } from "react-redux";
+import { fetchUser } from "shared/store-slice/user";
 
 interface IProps {
   navigation: any;
@@ -8,13 +10,15 @@ interface IProps {
 }
 
 const HomeScreen = ({ navigation, route }: IProps) => {
+  const dispatch = useDispatch();
   React.useEffect(() => {
-    navigation.openDrawer();
+    dispatch(fetchUser("1"));
   }, []);
+
   return (
     <View style={styles.container}>
       <Card>
-        <Card.Title>HOME</Card.Title>
+        <Card.Title>Homesssssss</Card.Title>
       </Card>
     </View>
   );
