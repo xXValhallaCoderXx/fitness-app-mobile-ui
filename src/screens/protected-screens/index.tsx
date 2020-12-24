@@ -10,8 +10,16 @@ const Drawer = createDrawerNavigator();
 const App = () => {
   return (
     <Drawer.Navigator initialRouteName="Home">
-      <Drawer.Screen name="Home" component={HomeScreen} />
-      <Drawer.Screen name="Profile" component={ProfileScreen} />
+      <Drawer.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{ headerShown: true }}
+      />
+      <Drawer.Screen
+        options={{ headerShown: true }}
+        name="Profile"
+        component={ProfileScreen}
+      />
     </Drawer.Navigator>
   );
 };
